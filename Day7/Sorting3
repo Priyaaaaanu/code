@@ -1,0 +1,71 @@
+Largest Number:
+
+Problem Description
+Given an array A of non-negative integers, arrange them such that they form the largest number.
+
+Note: The result may be very large, so you need to return a string instead of an integer.
+
+
+
+Problem Constraints
+1 <= len(A) <= 100000
+0 <= A[i] <= 2*109
+
+
+
+Input Format
+The first argument is an array of integers.
+
+
+
+Output Format
+Return a string representing the largest number.
+
+
+
+Example Input
+Input 1:
+
+ A = [3, 30, 34, 5, 9]
+Input 2:
+
+ A = [2, 3, 9, 0]
+
+
+Example Output
+Output 1:
+
+ "9534330"
+Output 2:
+
+ "9320"
+
+
+CODE:
+
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public String largestNumber(final List<Integer> A) {
+
+        Collections.sort(A, new Comparator<Integer>(){
+            public int compare(Integer val1, Integer val2){  
+                //above name should be "compare" not any other
+                //logic is "combo of 2 no. should give the greater value"
+                String s1 = Integer.toString(val1)+Integer.toString(val2);
+                //remember how to convert int to string
+                String s2 = Integer.toString(val2)+Integer.toString(val1);
+                return s2.compareTo(s1);
+            }
+        });
+        
+        //after sorting as per required   A=[9, 5, 34, 3, 30]
+        String ans = "";
+        for(int i=0; i<A.size(); i++){
+            ans = ans + A.get(i);  //just get the values from array.
+        }
+        if(A.get(0)==0){    //check edge condition...if A=[0,0,0,0]...ans=0
+            return "0";
+        }
+        return ans;
+    }
+}
