@@ -1,0 +1,21 @@
+Find Palindrome:
+
+eg: MADAM, RADAR, MALYALAM, NOON, MOM, NITIN, etc....
+
+
+public class Solution {
+    public int solve(String A) {
+        return check(A,0,A.length()-1);
+    }
+
+    public int check(String A, int s, int e){
+        int n = A.length();
+        if(s>e){
+            return 1;
+        }
+        if(A.charAt(s)==A.charAt(e) && check(A,s+1,e-1)==1){
+            return 1;
+        }
+        return 0;
+    }
+}
