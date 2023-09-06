@@ -1,0 +1,25 @@
+Print A to 1 function:
+
+You are given an integer A, print A to 1 using using recursion.
+Note :- After printing all the numbers from A to 1, print a new line.
+
+Problem Constraints:
+1 <= A <= 104
+
+Solution:
+
+public class Solution {
+    public void solve(int A) {
+        reverse(A);
+        System.out.println();
+    }
+
+    public void reverse(int num){
+        if(num==1){
+            System.out.print("1" + " ");
+            return;
+        }
+        System.out.print(num + " ");
+        reverse(num-1);
+    }
+}
