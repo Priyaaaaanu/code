@@ -1,0 +1,28 @@
+Implement power function:
+
+Given integer A, B and C implement A power B modulo C
+CONSTRAINTS:
+-109 <= A <= 109
+0 <= B <= 109
+1 <= C <= 109
+
+Solution:
+
+public class Solution{
+  public static int power(int A, int B, int C){
+    if(A==0){
+      return 0;}
+    if(B==0){
+      return 1;}
+    long x = power(A,B/2,C);
+    x = (x*x)%C;
+    if(B%2==1){
+      x = (x*A)%C;
+    }
+    x=(x+C)%C;  //to handle negative A
+    return (int)x;
+    }
+  }
+
+TC: O(logN)
+SC: O(logN)
