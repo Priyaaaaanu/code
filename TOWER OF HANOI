@@ -1,0 +1,26 @@
+RECcURSION
+
+public class Solution {
+    ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+    public ArrayList<ArrayList<Integer>> towerOfHanoi(int A) {
+        toh(A,1,2,3);
+        return result;
+    }
+
+    public void toh(int num, int s, int h, int d){
+        if(num==0){
+            return;
+        }
+        toh(num-1, s, d, h);
+        ArrayList<Integer> onedlist = new ArrayList<>();
+        onedlist.add(num);
+        onedlist.add(s);
+        onedlist.add(d);
+        result.add(onedlist);
+        toh(num-1, h, s, d);
+    }
+}
+
+
+TC=O(2^N)
+SC=O(N)
